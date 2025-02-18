@@ -13,22 +13,11 @@ contract Set014Renderer is ISetArtifactRenderer, Ownable {
     }
 
     mapping(uint256 => ColorPair) private colorPairs;
-
-    // Store orb path data chunks
     bytes[] private zorbPaths;
-
-    // Store torso path data chunks
     bytes[] private torsoPaths;
-    // Pre-computed patterns
-    bytes private constant PATTERN_SMALL =
-        '<path d="M400 800 h200 M400 820 h200 M400 840 h200" stroke="currentColor" stroke-width="2"/>';
-    bytes private constant PATTERN_MEDIUM =
-        '<path d="M400 800 l200 40 M400 820 l200 40 M400 840 l200 40" stroke="currentColor" stroke-width="2"/>';
-    bytes private constant PATTERN_LARGE =
-        '<path d="M420 800 v40 M440 800 v40 M460 800 v40 M480 800 v40" stroke="currentColor" stroke-width="2"/>';
 
-    // constructor(bytes[] memory _zorbPaths, bytes[] memory _torsoPaths) {
     constructor() Ownable(msg.sender) {
+        // Assign color pairs to token IDs
         // Edition One (1/1)
         colorPairs[8546] = ColorPair(hex"000000", hex"FFFFFF");
 
